@@ -1,12 +1,16 @@
 import Header from "@/components/Header.component"
-
-// import App from 'next/app'
+import { ThemeProvider } from 'emotion-theming'
+import { theme } from 'theme'
+import GlobalStyles from '@/components/GlobalStyles.styles'
 
 const App = ({ Component, pageProps }) => {
   return (
     <>
-      <Header />
-      <Component {...pageProps} />
+      <ThemeProvider theme={theme} >
+        <GlobalStyles />
+        <Header isDark />
+        <Component {...pageProps} />
+      </ThemeProvider>
     </>
   )
 }
