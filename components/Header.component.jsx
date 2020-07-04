@@ -2,6 +2,7 @@ import Link from 'next/link'
 import styled from '@emotion/styled'
 import { rem } from 'polished'
 import Navigation from './Navigation.component'
+import ToggleNavigationColorButton from './ToggleNavigationColorButton.component'
 
 const Header = ({ isDark }) => (
   <HeaderStyled isDark={isDark} >
@@ -15,6 +16,7 @@ const Header = ({ isDark }) => (
         </div>
       </Link> 
       <Navigation />
+      {/* <ToggleNavigationColorButton /> */}
     </NavigationContainer>
   </HeaderStyled>
 )

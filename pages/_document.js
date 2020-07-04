@@ -10,8 +10,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <title>Making website with Strapi and Next.js</title>
-          <link rel='icon' href='/favicon.ico'/>
+          <link rel="icon" href="/favicon.ico" />
         </Head>
         <body>
           <Main />

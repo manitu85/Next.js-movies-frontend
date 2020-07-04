@@ -6,10 +6,10 @@ const MovieCard = ({ movie }) => {
 
   const shortenText = (str, maxLength) => str && str.length >= maxLength ? str.slice(0, maxLength) + '...' : str
 
-  // if (!movie.genre) {
-  //   movie.genre = {}
-  //   movie.genre.slug = 'uncategorised'
-  // }
+  if (!movie.genre) {
+    movie.genre = {}
+    movie.genre.slug = 'uncategorised'
+  }
 
   return (
     <CardStyled>
@@ -28,9 +28,7 @@ const MovieCard = ({ movie }) => {
         <Link href="/movies/[slug]" as={`/movies/${movie.slug}`}>
           <a>More about this movie</a>
         </Link>
-        {/* <Link href="/movies/[genre]/[slug]" as={`/movies/${movie.genre.slug}/${movie.slug}`}>
-          <a>More about this movie</a>
-        </Link> */}
+
       </div>
     </CardStyled>
   )

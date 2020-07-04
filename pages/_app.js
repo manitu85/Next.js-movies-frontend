@@ -5,13 +5,15 @@ import ContextWrapper from '@/components/ContextWrapper.component'
 import { ThemeProvider } from 'emotion-theming'
 import GlobalStyles from '@/components/GlobalStyles.styles'
 import theme  from 'theme/theme'
-// import { DefaultSeo } from 'next-seo'
+import { DefaultSeo } from 'next-seo'
+import SEO from 'next-seo.config'
 
 
 const App = ({ Component, pageProps, navigation }) => {
   
   return (
     <>
+      <DefaultSeo {...SEO} />
       <ThemeProvider theme={theme} >
         <GlobalStyles />
         <ContextWrapper navigation={navigation}>

@@ -1,10 +1,12 @@
 import { useContext } from 'react'
 import { useRouter } from 'next/router'
-import styled from '@emotion/styled'
 import Link from 'next/link'
+import styled from '@emotion/styled'
+import { css } from '@emotion/core'
 import HeaderContext from '../contexts/HeaderContext'
 
 function Navigation() {
+  
   const router = useRouter()
   const { menuItems, color } = useContext(HeaderContext)
 
@@ -23,6 +25,10 @@ function Navigation() {
   )
 }
 
+const dynamicStyle = props =>
+  css`
+     color: ${props.color ? '#4C9E' : '#f72626'};
+  `
 const NavigationStyled = styled.div`
     ul {
         list-style: none;
@@ -38,7 +44,8 @@ const NavigationStyled = styled.div`
             font-size: 14px;
             font-weight: 600;
             letter-spacing: 1px;
-            color: ${props => props.color ? '#4C9E' : '#000'};
+            ${dynamicStyle}
+            /* color: ${props => props.color ? '#4C9E' : '#f72626'}; */
             &:hover {
                 color: #efefef;
             }
@@ -50,3 +57,4 @@ const NavigationStyled = styled.div`
 `
 
 export default Navigation
+
