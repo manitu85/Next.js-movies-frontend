@@ -17,8 +17,8 @@ const GlobalStyles = () => (
 
       body {
         margin: 0 auto;
-        color: ${({theme}) => theme.colors.secondary}; 
-        background-color: ${({theme}) => theme.colors.body};
+        color: ${({ theme }) => theme.colors.secondary}; 
+        background-color: ${({ theme }) => theme.colors.body};
         font-family: 'Open Sans', sans-serif;
         font-weight: 400;
         line-height: 1.5;
@@ -34,6 +34,6 @@ const GlobalStyles = () => (
       }
   `} />
 )
- 
+
 
 export default GlobalStyles

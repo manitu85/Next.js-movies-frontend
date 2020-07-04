@@ -1,26 +1,37 @@
+import Link from 'next/link'
 import styled from '@emotion/styled'
 import { rem } from 'polished'
+import Navigation from './Navigation.component'
 
 const Header = ({ isDark }) => (
   <HeaderStyled isDark={isDark} >
-    <div className='container'>
-      <div className='logo'>
-        <img className='logo-img' src='/film-logo.png' alt='film logo'/>
-        <span className='logo-text'>Next Movies</span>
-      </div>
-    </div>
+    <NavigationContainer>
+      <Link href='/'>
+        <div className='logo'>
+          <a>
+            <img className='logo-img' src='/film-logo.png' alt='film logo'/>
+            <span className='logo-text'>Next Movies</span>
+          </a>
+        </div>
+      </Link> 
+      <Navigation />
+    </NavigationContainer>
   </HeaderStyled>
 )
 
 const HeaderStyled = styled.header`
-  background-color: ${({ isDark, theme }) => isDark ? theme.colors.secondary : theme.colors.primary};
+  background-color: ${({ isDark, theme }) => isDark ? theme.colors.primary : theme.colors.secondary};
   height:  ${rem('100px')};
   padding: 1rem 0;
 
   .logo {
-    display: flex;
-    align-items: center;
-    height: ${rem('80px')};
+
+    a {
+      display: flex;
+      align-items: center;
+      height: ${rem('80px')};
+    }
+    /* margin-left: auto; */
 
     .logo-img { 
       max-height: ${rem('60px')};
@@ -35,6 +46,18 @@ const HeaderStyled = styled.header`
       letter-spacing: 3px;
     }
   }
+`
+
+const NavigationContainer = styled.div`
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2rem;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
 `
 
 export default Header
