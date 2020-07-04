@@ -1,12 +1,11 @@
+import { useContext } from 'react'
+import { useRouter } from 'next/router'
 import styled from '@emotion/styled'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { useContext } from 'react'
 import HeaderContext from '../contexts/HeaderContext'
 
 function Navigation() {
   const router = useRouter()
-  console.log(router)
   const { menuItems, color } = useContext(HeaderContext)
 
   return (
@@ -36,6 +35,9 @@ const NavigationStyled = styled.div`
         a {
             text-decoration: none;
             text-transform: uppercase;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
             color: ${props => props.color ? '#4C9E' : '#000'};
             &:hover {
                 color: #efefef;

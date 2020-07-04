@@ -6,10 +6,10 @@ const MovieCard = ({ movie }) => {
 
   const shortenText = (str, maxLength) => str && str.length >= maxLength ? str.slice(0, maxLength) + '...' : str
 
-  if (!movie.genre) {
-    movie.genre = {}
-    movie.genre.slug = 'uncategorised'
-  }
+  // if (!movie.genre) {
+  //   movie.genre = {}
+  //   movie.genre.slug = 'uncategorised'
+  // }
 
   return (
     <CardStyled>
@@ -20,11 +20,17 @@ const MovieCard = ({ movie }) => {
       )}
       <div className="body">
         <h3>{movie.title}</h3>
+
+        {movie.genres.map(gen => <span key={gen.id}>{gen.title}</span>)}
+        
         <p dangerouslySetInnerHTML={{ __html: shortenText(movie.description, 150) }} />
 
-        <Link href="/movies/[genre]/[slug]" as={`/movies/${movie.genre.slug}/${movie.slug}`}>
+        <Link href="/movies/[slug]" as={`/movies/${movie.slug}`}>
           <a>More about this movie</a>
         </Link>
+        {/* <Link href="/movies/[genre]/[slug]" as={`/movies/${movie.genre.slug}/${movie.slug}`}>
+          <a>More about this movie</a>
+        </Link> */}
       </div>
     </CardStyled>
   )
@@ -41,17 +47,19 @@ const CardStyled = styled.div`
     img {
       display: block;
       width: 100%;
-      /* height: 300px; */
+    }
+
+    span {
+      margin-right: 5px;
+      margin-bottom: 20px;
+      color: #b5b5b5;
     }
     
     .body {
         padding: 20px;
-        
-        h3 {
-            margin-bottom: 20px;
-        }
-        
+          
         p {
+            margin-top: 20px;
             color: #666666;
             line-height: 1.5;
         }

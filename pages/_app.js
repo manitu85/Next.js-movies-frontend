@@ -9,7 +9,6 @@ import theme  from 'theme/theme'
 
 
 const App = ({ Component, pageProps, navigation }) => {
-  console.log(navigation);
   
   return (
     <>

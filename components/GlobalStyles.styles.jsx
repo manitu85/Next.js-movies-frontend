@@ -26,6 +26,13 @@ const GlobalStyles = () => (
         min-height: 100vh;
       }
 
+      button {
+        border: 1px sold #ccc;
+        padding: 10px 20px;
+        border-radius: 5px;
+        display: inline-block;
+      }
+
       .container {
         max-width: 1280px;
         width: 100%;

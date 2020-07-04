@@ -4,14 +4,11 @@ import MovieCard from '@/components/MovieCard.component'
 
 export default ({ movies }) => {
   // console.log(movies);
-
   
   return (
     <div className='container'>
       <FourGridColumn>
-        {
-          movies.map(movie => <MovieCard key={movie.id} movie={movie} /> )
-        }
+        { movies.map(movie => <MovieCard key={movie.id} movie={movie} /> ) }
       </FourGridColumn>
     </div>
   )
